@@ -12,7 +12,13 @@ export const EstudiantesApp = () => {
     console.log(estudiantes);
 
     const agregarEstudiante = (estudiante) => {
-        setEstudiantes([...estudiantes, estudiante])
+       const existeEstudiante = estudiantes.some((estudiante) => estudiante.id === agregarEstudiante.id);
+        if (existeEstudiante) {
+            window.alert("¡El estudiante ya existe!");
+        } else {
+            setEstudiantes([...estudiantes, estudiante]);
+        }
+        setEstudiantes('');
     }
 
     return (
